@@ -87,7 +87,6 @@ public class BadIOGUI {
             @Override
             public void actionPerformed(final ActionEvent arg0) {
                 try {
-                    //rs.print(Files.);
                     System.out.println(Files.readAllLines(Path.of(PATH))); // NOPMD: allowed as this is just an exercise
                 } catch (IOException e1) {
                     JOptionPane.showMessageDialog(frame, e1, "Error", JOptionPane.ERROR_MESSAGE);
