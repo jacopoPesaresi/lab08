@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.[cC][mM][dD] text eol=crlf
+*.[bB][aA][tT] text eol=crlf
+*.[pP][sS]1 text eol=crlf
+*.[tT][xX][tT] text eol=crlf
+*.[jJ][aA][vV][aA] text eol=crlf
+*.[mM][dD] text eol=crlf
+*.[kK][tT][sS] text eol=crlf
+*.[pP][rR][oO][pP][eE][rR][tT][iI][eE][sS] text eol=crlf
+*/gradlew text eol=crlf
+#*.[gG][rR][aA][dD][lL][eE][wW] text eol=crlf
