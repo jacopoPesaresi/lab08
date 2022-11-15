@@ -1,6 +1,6 @@
 package it.unibo.mvc;
 
-import javax.swing.JFrame;
+//import javax.swing.JFrame;
 
 
 /**
@@ -9,6 +9,6 @@ import javax.swing.JFrame;
  */
 public final class SimpleGUIWithFileChooser {
 
-    private final JFrame frame = new JFrame();
+    //private final JFrame frame = new JFrame();
 
 }

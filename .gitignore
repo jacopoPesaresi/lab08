@@ -1,3 +1,7 @@
 .class
 /bin/
 /build/
+build/
+bin/
+/build
+/bin
