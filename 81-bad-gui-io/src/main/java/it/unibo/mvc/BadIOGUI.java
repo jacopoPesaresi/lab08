@@ -14,8 +14,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.List;
+//import java.nio.file.Files;
+//import java.util.List;
 import java.util.Random;
 
 /**
@@ -42,7 +42,19 @@ public class BadIOGUI {
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
         final JButton write = new JButton("Write on file");
-        canvas.add(write, BorderLayout.CENTER);
+        //canvas.add(write, BorderLayout.CENTER); //point 3 of es 1.1
+
+        //es 1.1
+        final JPanel myCan = new JPanel();
+        myCan.setLayout(new BoxLayout(myCan, BoxLayout.X_AXIS)); //TODO valuta se cambiare allineamento
+        canvas.add(myCan, BorderLayout.CENTER);
+        myCan.add(write);
+        //testing 
+
+        final JButton readB = new JButton("Read");
+        myCan.add(readB);
+        //testing
+
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /*
@@ -66,6 +78,14 @@ public class BadIOGUI {
                 }
             }
         });
+
+        readB.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(final ActionEvent arg0) {
+                System.out.println("Hello world!"); // NOPMD: allowed as this is just an exercise
+            }
+        });
     }
 
     private void display() {
@@ -87,6 +107,8 @@ public class BadIOGUI {
          * on screen. Results may vary, but it is generally the best choice.
          */
         frame.setLocationByPlatform(true);
+
+        frame.pack(); //point 6 es 1.1
         /*
          * OK, ready to push the frame onscreen
          */
