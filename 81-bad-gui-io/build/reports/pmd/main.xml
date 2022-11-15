@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.51.0" timestamp="2022-11-15T14:22:17.784">
+<file name="C:\Users\jacopo.pesaresi2\Desktop\tmp\lab08\81-bad-gui-io\src\main\java\it\unibo\mvc\BadIOGUI.java">
+<violation beginline="3" endline="3" begincolumn="1" endcolumn="29" rule="UnnecessaryImport" ruleset="Code Style" package="it.unibo.mvc" class="BadIOGUI" externalInfoUrl="https://pmd.github.io/pmd-6.51.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Unused import 'javax.swing.BoxLayout'
+</violation>
+<violation beginline="17" endline="17" begincolumn="1" endcolumn="27" rule="UnnecessaryImport" ruleset="Code Style" package="it.unibo.mvc" class="BadIOGUI" externalInfoUrl="https://pmd.github.io/pmd-6.51.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Unused import 'java.nio.file.Files'
+</violation>
+<violation beginline="18" endline="18" begincolumn="1" endcolumn="22" rule="UnnecessaryImport" ruleset="Code Style" package="it.unibo.mvc" class="BadIOGUI" externalInfoUrl="https://pmd.github.io/pmd-6.51.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
+Unused import 'java.util.List'
+</violation>
+</file>
+</pmd>
