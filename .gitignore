@@ -14,3 +14,5 @@ bin
 bin/*
 */bin
 */bin/*
+
+logFile.txt
