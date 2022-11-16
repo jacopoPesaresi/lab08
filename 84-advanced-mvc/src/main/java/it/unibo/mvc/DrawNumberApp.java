@@ -1,15 +1,24 @@
 package it.unibo.mvc;
 
+
 import java.io.FileNotFoundException;
+/*
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.BufferedReader;
+*/
+
 import java.util.Arrays;
 import java.util.List;
 
 /**
  */
 public final class DrawNumberApp implements DrawNumberViewObserver {
-    private static final int MIN = 0;
-    private static final int MAX = 100;
-    private static final int ATTEMPTS = 10;
+    //private static final int MIN = 0;
+    //private static final int MAX = 100;
+    //private static final int ATTEMPTS = 10;
 
     private final DrawNumber model;
     private final List<DrawNumberView> views;
@@ -27,8 +36,21 @@ public final class DrawNumberApp implements DrawNumberViewObserver {
             view.setObserver(this);
             view.start();
         }
-        this.model = new DrawNumberImpl(MIN, MAX, ATTEMPTS);
+        //this.model = new DrawNumberImpl(MIN, MAX, ATTEMPTS);
+        this.model = new DrawNumberImpl("config.yml");
+        //System.out.println(PACKAGE_PATH + SRC_PATH + RES_PATH);
     }
+    /*
+    public DrawNumberApp(final String name_file, final DrawNumberView... views) {
+        this(views);
+        try (BufferedReader br = new BufferedReader(new FileReader(CONFIG_PATH + name_file + ".yml"))) {
+            final String read = br.readLine();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    */
 
     @Override
     public void newAttempt(final int n) {
