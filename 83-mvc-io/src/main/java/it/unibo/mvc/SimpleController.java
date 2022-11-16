@@ -11,22 +11,29 @@ public final class SimpleController implements Controller {
     private String myString;
     private List<String> history;
 
-
-    public SimpleController(String firstString){
+    /**
+     * 
+     * @param firstString texttexttext
+     */
+    public SimpleController(final String firstString) {
         myString = firstString;
         history = new ArrayList<>();
     }
 
-    public SimpleController(){
+    /**
+     * 
+     */
+    public SimpleController() {
         this("");
     }
 
     @Override
     public void setNextString(final String newString) throws Exception {
-        if (newString !=null){
-            myString = newString;
-        } else throw new Exception();
-        
+        if (newString != null) {
+            myString = new String(newString);
+        } else {
+            throw new Exception();
+        }
     }
 
     @Override
@@ -41,12 +48,12 @@ public final class SimpleController implements Controller {
 
     @Override
     public void printActualString() throws IllegalStateException {
-        if(myString!=null){
-            System.out.println(myString);
+        if (myString != null) {
+            System.out.println(myString);  //NOPMD
+            history.add(getNextString());
         } else {
             throw new IllegalStateException();
         }
-        
     }
 
 }
