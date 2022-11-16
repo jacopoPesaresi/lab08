@@ -18,13 +18,16 @@ public final class DrawNumberImpl implements DrawNumber {
     private int remainingAttempts;
     private final Random random = new Random();
 
-    private final static String PACKAGE_PATH = Paths.get(System.getProperty("user.dir")).getParent().toString();
-    private final static String SEP = System.getProperty("file.separator");
-    private final static String SRC_PATH = SEP + "84-advanced-mvc" + SEP + "src" + SEP + "main";
-    private final String RES_PATH =  SEP  + "resources" + SEP; 
-    private final String CONFIG_PATH = PACKAGE_PATH + SRC_PATH + RES_PATH;
-    
+    private static final String PACKAGE_PATH = Paths.get(System.getProperty("user.dir")).getParent().toString();
+    private static final String SEP = System.getProperty("file.separator");
+    private static final String SRC_PATH = SEP + "84-advanced-mvc" + SEP + "src" + SEP + "main";
+    private static final String RES_PATH =  SEP  + "resources" + SEP; 
+    private static final String CONFIG_PATH = PACKAGE_PATH + SRC_PATH + RES_PATH;
     /**
+     * 
+     * @param min text
+     * @param max text
+     * @param attempts text
      * @throws IllegalStateException if the configuration is not consistent
      */
     public DrawNumberImpl(final int min, final int max, final int attempts) {
@@ -35,16 +38,16 @@ public final class DrawNumberImpl implements DrawNumber {
     }
 
     /*
-     * 
+     * fuction that help the read of the config file
      */
-    private int catchValue(final BufferedReader br) {
-        String tmp="";
+    private int readValue(final BufferedReader br) {
+        String tmp = "";
         try {
             tmp = br.readLine();
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); //NOPMD: is an esercice
         }
-        return Integer.parseInt(tmp.split(":")[1]);
+        return Integer.parseInt((tmp.split(": "))[1]);
     }
     /**
      * @param fileConfigName
@@ -54,13 +57,13 @@ public final class DrawNumberImpl implements DrawNumber {
         try {
             br = new BufferedReader(new FileReader(CONFIG_PATH + fileConfigName));
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); //NOPMD: is an esercice
         }
 
-        min = catchValue(br);
-        max = catchValue(br);
-        attempts = catchValue(br);
-        
+        min = readValue(br);
+        max = readValue(br);
+        attempts = readValue(br); 
+        this.reset();
     }
 
     @Override
