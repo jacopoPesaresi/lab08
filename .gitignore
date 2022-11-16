@@ -18,3 +18,8 @@ bin/*
 logFile.txt
 
 81-bad-gui-io/
+/81-bad-gui-io
+/81-bad-gui-io/
+81-bad-gui-io/*
+*/81-bad-gui-io/
+*/81-bad-gui-io/*
