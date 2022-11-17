@@ -8,6 +8,7 @@ import java.util.List;
  *
  */
 public final class SimpleController implements Controller {
+
     private String myString;
     private List<String> history;
 
@@ -30,7 +31,7 @@ public final class SimpleController implements Controller {
     @Override
     public void setNextString(final String newString) {
         if (newString != null) {
-            myString = newString; // new String(newString); //NOPMD : defense copy (it is correct/necessary?)
+            myString = newString; //new String(newString); //NOPMD : defense copy (it is correct/necessary?)
         } else {
             throw new IllegalArgumentException();
         }
