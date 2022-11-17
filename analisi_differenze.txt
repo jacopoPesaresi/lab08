@@ -38,5 +38,6 @@ non sapevo come eliminare l'ultimo invio che verrebbe aggiungo aggiungendo strin
 2) nel SimpleController, nei metodi setter and getter desideravo fare una copia difensiva, ma al NOPMD non piaceva... è effettivamente NON necessario?
 
 CASA 84-advanced-mvc
-
+ho previsto la lettura del file nel DrawNumberImpl, presupponendo la creazione di un nuovo costruttore in quella classe che accettasse il nome del file. Mi accorgo che è una implementazione poco robusta, perchè è una implementazione che si aspetta il file "config.yml" esclusivamente nella cartella del progetto (in futuro magari rendo il tutto più robusto)
+In ogni caso, ho previsto un metodo di supporto per fare le letture e poter lanciare eccezzioni per ogni errore (anche se il tutto è troppo specifico al progetto, quindi rammento la debolezza della soluzione) 
 
