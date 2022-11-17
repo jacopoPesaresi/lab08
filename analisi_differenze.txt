@@ -12,6 +12,17 @@ ho stampato direttamente "il .toString" di Files.readAllLines
 usato il readAllLines con diverso argomento (sempre Path è, ma passato in 2 modi diversi)
 
 CASA 82-simple-mvc-io
+(Controller)
+riordinato un pò i metodi (prima il costruttore, poi i getter, e così via)
+non ho previsto la creazione di un "static File default" (o in ogni caso il mio campo File NON è inizializzato con il file di default)
+in quello che per voi è il metodo "save": aperto PrintStream senza il Charsets
+no previsti 2 metodi per svolgere il set del file
+(SimpleGUI)
+potevo proteggere i metodi dentro il listener del Save
+(SimpleGUIWithFileChooser)
+ingnaro che potessi mantenere l'implementazione precedente, sono assente del JTextArea e il pulsante Save non ha effetto (pensavo quindi fosse una scusa per vedere il JFileChooser)
+ingnaro anche che il JFileChooser potesse partire da un file per poi diramare la ricerca (con setSelectedFile)
+no usato uno switch per gestire i casi di "file selezionato con successo" / "altro" (e ho appunto usato brutalmente un if)
 
 CASA 83-mvc-io
 
