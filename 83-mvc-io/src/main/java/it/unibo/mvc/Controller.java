@@ -9,14 +9,14 @@ public interface Controller {
 
     /**
      * method that set the next string to print.
-     * @param newString texttexttext.
-     * @throws Exception texttexttext.
+     * @param newString to set in the controller.
+     * @throws IllegalArgumentExpression if {@param String} is null.
      */
-    void setNextString(String newString) throws Exception;
+    void setNextString(String newString);
 
     /**
      * method to get the next string to print.
-     * @return texttexttext
+     * @return the String setted in the controller
      */
     String getNextString();
 
@@ -28,6 +28,6 @@ public interface Controller {
     /**
      * @throws IllegalStateException if the current string is unset.
      */
-    void printActualString() throws IllegalStateException;
+    void printActualString();
 
 }

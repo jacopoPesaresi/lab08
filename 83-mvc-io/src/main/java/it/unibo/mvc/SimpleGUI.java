@@ -1,21 +1,5 @@
-/*
 package it.unibo.mvc;
 
-import javax.swing.JFrame;
-
-
- * A very simple program using a graphical interface.
- * 
-
-public final class SimpleGUI {
-
-    private final JFrame frame = new JFrame();
-
-}
-*/
-package it.unibo.mvc;
-
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -27,6 +11,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 /**
  * A very simple program using a graphical interface.
@@ -47,9 +32,6 @@ public final class SimpleGUI {
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
 
-        //final JTextArea text = new JTextArea("dummy");
-        //final JButton saveB = new JButton("Save");
-
         final JTextField tField = new JTextField();
         final JTextArea tArea = new JTextArea();
         final JButton bPrint = new JButton("Print");
@@ -58,15 +40,13 @@ public final class SimpleGUI {
         tArea.setEditable(false);
 
         final JPanel tmpPanel = new JPanel();
-        tmpPanel.setLayout(new BoxLayout(tmpPanel, BoxLayout.LINE_AXIS));
-        tmpPanel.add(bPrint);
-        tmpPanel.add(bShowHist);
+        tmpPanel.setLayout(new BorderLayout());
+        tmpPanel.add(bPrint, BorderLayout.CENTER);
+        tmpPanel.add(bShowHist, BorderLayout.LINE_END);
 
         canvas.add(tField, BorderLayout.NORTH);
         canvas.add(tArea, BorderLayout.CENTER);
         canvas.add(tmpPanel, BorderLayout.SOUTH);
-        //canvas.add(bShowHist, BorderLayout.SOUTH);
-        //canvas.add(bPrint, BorderLayout.SOUTH);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -78,11 +58,9 @@ public final class SimpleGUI {
                 try {
                     myCon.setNextString(actualString);
                     myCon.printActualString();
-                } catch (Exception e) {
-                    e.printStackTrace(); //NOPMD
-                }
-                //new Controller().writeIntoFile(text.getUIClassID()); 
-                //TODO: non so cosa stampare, vorrei stampare la testArea ma non mi viene.
+                } catch (Exception e) { // NOPMD : Exception catch all other type of Exceptions
+                    e.printStackTrace(); //NOPMD : it is an esercice
+                } 
             }
         });
 
@@ -90,7 +68,12 @@ public final class SimpleGUI {
 
             @Override
             public void actionPerformed(final ActionEvent arg0) {
-                tArea.setText(myCon.getHistory().toString());
+                final StringBuilder tmp = new StringBuilder();
+                final List<String> history = myCon.getHistory();
+                for (final String s : history) {
+                    tmp.append(s + "\n");
+                }
+                tArea.setText(tmp.toString());
             } });
     }
 
@@ -116,9 +99,6 @@ public final class SimpleGUI {
          * on screen. Results may vary, but it is generally the best choice.
          */
         frame.setLocationByPlatform(true);
-
-        //frame.pack(); 
-
         /*
          * OK, ready to push the frame onscreen
          */
@@ -131,8 +111,7 @@ public final class SimpleGUI {
      * @param args
      */
     public static void main(final String[] args) {
-        final SimpleGUI g = new SimpleGUI(new SimpleController());
-        g.display();
+        new SimpleGUI(new SimpleController()).display();
     }
 
 }

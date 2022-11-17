@@ -11,34 +11,34 @@ public final class SimpleController implements Controller {
     private String myString;
     private List<String> history;
 
-    /**
-     * 
-     * @param firstString texttexttext
-     */
+   /**
+    * 
+    * @param firstString to set into controller
+    */
     public SimpleController(final String firstString) {
         myString = firstString;
         history = new ArrayList<>();
     }
 
     /**
-     * 
+     * set a empty string if the user use this constructor.
      */
     public SimpleController() {
         this("");
     }
 
     @Override
-    public void setNextString(final String newString) throws Exception {
+    public void setNextString(final String newString) {
         if (newString != null) {
-            myString = new String(newString);
+            myString = newString; // new String(newString); //NOPMD : defense copy (it is correct/necessary?)
         } else {
-            throw new Exception();
+            throw new IllegalArgumentException();
         }
     }
 
     @Override
     public String getNextString() {
-        return new String(myString);
+        return myString; //new String(myString); //NOPMD : defense copy (it is correct/necessary?)
     }
 
     @Override
@@ -47,9 +47,9 @@ public final class SimpleController implements Controller {
     }
 
     @Override
-    public void printActualString() throws IllegalStateException {
+    public void printActualString() {
         if (myString != null) {
-            System.out.println(myString);  //NOPMD
+            System.out.println(myString);  //NOPMD : it is an esercice
             history.add(getNextString());
         } else {
             throw new IllegalStateException();
