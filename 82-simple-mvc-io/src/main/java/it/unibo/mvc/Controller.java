@@ -1,36 +1,34 @@
 package it.unibo.mvc;
 
-//import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-//import java.io.Writer;
+import java.io.PrintStream;
+
 /**
  * Application controller. Performs the I/O.
 */
 public class Controller {
-    private static transient String mYHOME = System.getProperty("user.home");
-    private static transient String mYSEP = System.getProperty("file.separator");
-    private static String dEFAULTnAMEoFoUTfILE = "output.txt";
+    private static final transient String MYHOME = System.getProperty("user.home");
+    private static final transient String MYSEP = System.getProperty("file.separator");
+    private static final String DEFAULTNAMEOFOUTFILE = "output.txt";
 
     private File f;
     /**
      * 
-     * @param f texttexttext.
+     * @param f the file that the controller will manage.
      */
     public Controller(final File f) {
         this.f = f;
     }
     /**
-     * 
+     * the controller will manage a default file
      */
     public Controller() {
-        this(new File(mYHOME + mYSEP + dEFAULTnAMEoFoUTfILE));
+        this(new File(MYHOME + MYSEP + DEFAULTNAMEOFOUTFILE));
     }
     /**
      * 
-     * @param newFile texttexttext.
+     * @param newFile the new file that the controller will manage.
      */
     public void setCurrentFile(final File newFile) {
         this.f = newFile;
@@ -38,7 +36,7 @@ public class Controller {
 
     /**
      * 
-     * @return texttexttext.
+     * @return the actual file that the controller is managing.
      */
     public File getCurrentFile() {
         return f;
@@ -46,19 +44,19 @@ public class Controller {
 
     /**
      * 
-     * @return texttexttext.
+     * @return the path of the file that the controller is managing.
      */
     public String getPathString() {
-        return f.getPath(); //toPath().toString(); //riguardami.
+        return this.getCurrentFile().getPath(); //toPath().toString(); //riguardami.
     }
 
     /**
      * 
-     * @param what texttexttext.
+     * @param what the string that will be printed into the file that the controller is managing.
      */
     public void writeIntoFile(final String what) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(f))) {
-            bw.append(what);
+        try (PrintStream bw = new PrintStream(f)) {
+            bw.print(what);
         } catch (IOException e) {
            e.printStackTrace();  //NOPMD: è un esercizio
         }

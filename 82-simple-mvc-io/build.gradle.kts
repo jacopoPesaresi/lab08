@@ -9,7 +9,7 @@ repositories {
 }
 
 application {
-    mainClass.set("it.unibo.mvc.SimpleGUIWithFileChooser")
+    mainClass.set("it.unibo.mvc.SimpleGUI")
 }
 
 tasks.javadoc {

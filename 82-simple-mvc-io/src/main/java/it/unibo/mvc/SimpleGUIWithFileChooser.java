@@ -1,14 +1,11 @@
 package it.unibo.mvc;
 
-//import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-//import javax.swing.JTextArea;
 import javax.swing.JTextField;
-//import javax.swing.border.Border;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -21,14 +18,15 @@ import java.awt.event.ActionListener;
  * 
  */
 public final class SimpleGUIWithFileChooser {
-    private Controller controller = new Controller();
+    private final Controller controller = new Controller();
     private final JFrame frame = new JFrame();
     private static final int PROPORTION = 3;
 
     /**
      * 
+     * @param myController that the GUI can use.
      */
-    public SimpleGUIWithFileChooser() {
+    public SimpleGUIWithFileChooser(final Controller myController) {
 
         frame.setTitle("My little GUI (with file chooser)");
 
@@ -42,12 +40,10 @@ public final class SimpleGUIWithFileChooser {
         path.setEditable(false);
         path.setText(controller.getPathString());
 
-
         final JButton browseB = new JButton("Browse...");
         northG.add(path, BorderLayout.CENTER);
         northG.add(browseB, BorderLayout.LINE_END);
         canvas.add(northG, BorderLayout.NORTH);
-
 
         final JButton saveB = new JButton("Save");
         canvas.add(saveB, BorderLayout.SOUTH);
@@ -55,14 +51,6 @@ public final class SimpleGUIWithFileChooser {
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        /*
-        saveB.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-            }
-        });
-        */
         browseB.addActionListener(new ActionListener() {
 
             @Override
@@ -101,9 +89,6 @@ public final class SimpleGUIWithFileChooser {
          * on screen. Results may vary, but it is generally the best choice.
          */
         frame.setLocationByPlatform(true);
-
-        //frame.pack(); 
-
         /*
          * OK, ready to push the frame onscreen
          */
@@ -116,7 +101,6 @@ public final class SimpleGUIWithFileChooser {
      * @param args
      */
     public static void main(final String[] args) {
-        final SimpleGUIWithFileChooser g = new SimpleGUIWithFileChooser();
-        g.display();
+        new SimpleGUIWithFileChooser(new Controller()).display();
     }
 }

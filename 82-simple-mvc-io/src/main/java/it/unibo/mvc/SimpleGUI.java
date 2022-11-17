@@ -21,9 +21,9 @@ public final class SimpleGUI {
     private static final int PROPORTION = 3;
 
     /**
-     * 
-     */
-    public SimpleGUI() {
+     * @param myController that the GUI can use.
+    */
+    public SimpleGUI(final Controller myController) {
 
         frame.setTitle("My little GUI");
 
@@ -43,8 +43,7 @@ public final class SimpleGUI {
 
             @Override
             public void actionPerformed(final ActionEvent arg0) {
-                new Controller().writeIntoFile(text.getUIClassID()); 
-                //TODO: non so cosa stampare, vorrei stampare la testArea ma non mi viene
+                myController.writeIntoFile(text.getText()); 
             }
         });
 
@@ -73,8 +72,6 @@ public final class SimpleGUI {
          */
         frame.setLocationByPlatform(true);
 
-        //frame.pack(); 
-
         /*
          * OK, ready to push the frame onscreen
          */
@@ -84,11 +81,10 @@ public final class SimpleGUI {
 
     /**
      * 
-     * @param args
+     * @param args default line-command arguments
      */
     public static void main(final String[] args) {
-        final SimpleGUI g = new SimpleGUI();
-        g.display();
+        new SimpleGUI(new Controller()).display();
     }
 
 }
