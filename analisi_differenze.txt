@@ -25,6 +25,18 @@ ingnaro anche che il JFileChooser potesse partire da un file per poi diramare la
 no usato uno switch per gestire i casi di "file selezionato con successo" / "altro" (e ho appunto usato brutalmente un if)
 
 CASA 83-mvc-io
+(SimpleController)
+Ho previsto dei construttori (non erano necessari?)
+Usato ArrayList invece di LinkedList
+il setter del string non ho usato il RequireNotNull ma ho fatto lanciare una IllegalArgumentException a mano
+nel return history ho fatto ritornare una lista modificabile (un ArrayList) invece di usare il metodo di Collection (effettivamente è meno robusto così)
+(SimpleGUI)
+ho usato una stringa in più (forse facendo prove ho dimenticato di eliminarla)
+non sapevo come eliminare l'ultimo invio che verrebbe aggiungo aggiungendo stringhe nel StringBuilder
+[Dubbi:]
+1) non capisco perchè in SimpleGUI, riga 65, ho dovuto aggiungere un //NOPMD quando il "catch (Exception e)" riesce a catturare tutte le eccezzioni... Insomma, senza //NOPMD, mi dave un errore del tipo: "Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block"
+2) nel SimpleController, nei metodi setter and getter desideravo fare una copia difensiva, ma al NOPMD non piaceva... è effettivamente NON necessario?
 
 CASA 84-advanced-mvc
+
 
